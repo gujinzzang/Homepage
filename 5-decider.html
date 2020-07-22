@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>오늘 뭐 먹지? :: 자 취 가 답 이 다</title>
+    </head>
+    <style>
+        * {
+            padding : 0;
+        }
+        a {
+            color : white;
+            text-decoration : none;
+        }
+        ul {
+            list-style: none;
+        }
+        table {
+            margin : 0;
+            padding : 0;
+        }
+        body {
+            font-family : "AppleSDGothicNeoL00";
+            margin : 0;
+            padding : 0;
+            background-image : url(Image/background.jpg);
+            background-size : 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        #pageWrapper {
+            width : 1280px;
+            margin : 20px auto;
+            padding : 0;
+            overflow : hidden;
+        }
+        #top {
+            width : 990px;
+            height : 150px;
+            margin : 0 145px 0 145px;
+            border-bottom : 1px solid #FFFFFF;
+        }
+        .title {
+            width : 740px;
+            float : left;
+            font-size : 36px;
+            color : white;
+            margin : 80px 0;
+        }
+        .topMenu {
+            width : 80px;
+            float : right;
+            margin : 50px 0;
+        }
+        .mainTitle {
+            color : white;
+            text-align : center;
+        }
+        #centerbox {
+            margin : 0 140px 0 140px;
+        }
+        #item {
+            display : inline-block;
+            float : left;
+            margin : 0;
+        }
+        .item {
+            display : inline-block;
+            float : left;
+            margin : 0;
+        }
+        #mainFooter {
+        	display : block;
+        	margin-bottom : 20px;
+            color : #999999;
+            text-align : center;
+        }
+    </style>
+    <style>
+        #darken-background {
+            position : absolute;
+            height : 1080px;
+            top : 0;
+            left : 0;
+            right : 0;
+            
+            display : none;
+            background : rgba(0, 0, 0, 0.9);
+            z-index : 10000;
+            overflow-y : scroll;
+        }
+        #lightbox {
+            width : 800px;
+            margin : 20px auto;
+            padding : 15px;
+            
+            border : 1px solid #333333;
+            border-radius : 5px;
+            background : white;
+            box-shadow : 0 5px 5px rgba(34, 25, 25, 0.4);
+        }
+        .lightbox-splitter {
+            width : 800px;
+            float : left;
+            margin : 10px 0;
+        }
+        #boxtop {
+            display : block;
+        }
+        #quitBox {
+            margin : 10px 5px 10px 5px;
+            border-radius : 2px;
+            background-color : #aaaaaa;
+            float : right;
+        }
+        #retry {
+            margin : 10px 5px 10px 5px;
+            border-radius : 2px;
+            background-color : #aaaaaa;
+            float : right;
+        }
+        #boxmiddle {
+            width : 800px;
+            height : 1080px;
+            margin : 0 auto;
+        }
+        .pbox {
+            display : inline;
+            width : 380px;
+            height : 80px;
+            margin : 10px;
+            float : left;
+            overflow : hidden;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <link href="lightbox/css/lightbox.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="lightbox/js/lightbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            function showLightBox() {
+                $('#darken-background').show();
+                $('body').css('overflow', 'hidden');
+            }
+            $('#end').click(function (event) {
+                showLightBox();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#c1').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p3').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p11').css('display', 'none')
+            });
+            $('#c2').click(function (event) {
+                $('#p2').css('display', 'none')
+                $('#p3').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+            $('#c3').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p2').css('display', 'none')
+                $('#p3').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p11').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+            $('#c4').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p2').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p11').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#c5').click(function (event) {
+                $('#p3').css('display', 'none')
+                $('#p8').css('display', 'none')
+            });
+            $('#c6').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p2').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p11').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+            $('#c7').click(function (event) {
+                $('#p2').css('display', 'none')
+                $('#p3').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#c8').click(function (event) {
+                $('#p3').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p9').css('display', 'none')
+            });
+            $('#c9').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p2').css('display', 'none')
+                $('#p3').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p11').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+            $('#c10').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p2').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p11').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#c11').click(function (event) {
+                $('#p3').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p11').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+            $('#c12').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p2').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p7').css('display', 'none')
+                $('#p10').css('display', 'none')
+                $('#p11').css('display', 'none')
+            });
+            $('#c13').click(function (event) {
+                $('#p1').css('display', 'none')
+                $('#p2').css('display', 'none')
+                $('#p3').css('display', 'none')
+                $('#p4').css('display', 'none')
+                $('#p5').css('display', 'none')
+                $('#p6').css('display', 'none')
+                $('#p8').css('display', 'none')
+                $('#p9').css('display', 'none')
+                $('#p12').css('display', 'none')
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var width = $('[data-role="slider"]').attr('data-width');
+            var height = $('[data-role="slider"]').attr('data-height');
+            var count = $('[data-role="slider"] div.frame').length;
+            
+            $('[data-role="slider"]').css({
+                position: 'relative',
+                overflow: 'hidden',
+                width: width,
+                height: height
+            }).find('.container').css({
+                position: 'absolute',
+                width: count * height,
+                overflow: 'hidden'
+            }).find('.frame').css({
+                width: width,
+                height: height
+            });
+            var currentPage = 0;
+            var changePage = function () {
+                $('[data-role="slider"] > .container').animate({
+                    top: -currentPage * height
+                }, 500);
+            };
+            $('.frame').click(function () {
+                if (currentPage < count - 1) {
+                    currentPage = currentPage + 1;
+                    changePage();
+                }
+            });
+        });
+    </script>
+    <body>
+        <p></p>
+        <div id="pageWrapper">
+            <div id="top">
+                <header class="title">
+                </header>
+                <nav class="topMenu">
+                    <h2><a href="index.html">main</a></h2>
+                </nav>
+            </div>
+            <section id="centerbox">
+                <div data-role="slider" data-width="1000" data-height="500">
+                    <div class="container">
+                        <div class="frame">
+                            <a href="#"><img id="item" src="image/decider/0.png" width="1000" height="500" /></a>
+                        </div>
+                        <div class="frame">
+                            <div class="item">
+                                <a href="#"><img id="c1" src="image/decider/1-1.png" width="200" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c2" src="image/decider/1-2.png" width="200" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c3" src="image/decider/1-3.png" width="200" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c4" src="image/decider/1-4.png" width="200" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="image/decider/1-5.png" width="200" height="490"/></a>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <div class="item">
+                                <a href="#"><img id="c5" src="image/decider/2-1.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c6" src="image/decider/2-2.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c7" src="image/decider/2-3.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="image/decider/2-4.png" width="250" height="490"/></a>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <div class="item">
+                                <a href="#"><img id="c8" src="image/decider/3-1.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c9" src="image/decider/3-2.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c10" src="image/decider/3-3.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="image/decider/2-4.png" width="250" height="490"/></a>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <div class="item">
+                                <a href="#"><img id="c11" src="image/decider/4-1.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c12" src="image/decider/4-2.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img id="c13" src="image/decider/4-3.png" width="250" height="490"/></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="image/decider/2-4.png" width="250" height="490"/></a>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <a href="#"><img id="end" src="image/decider/5.png" width="1000" height="500" /></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="mainFooter">
+                <h5>Myongji University Information &amp; Communications GOD JONG MYONG KYO SOO NIM SA RANG HAE YO </h5>
+            </footer>
+        </div>
+        <div id="darken-background">
+            <div id="lightbox">
+                <hr class="lightbox-splitter" />
+                <div id="boxtop">
+                    <table border="0" width="800">
+                        <tr>
+                            <td id="boxTitle"><h1>여긴 어때요?</h1></td>
+                            <td id="retry"><a href="5-decider.html"><p><b>다시하기</b></p></a></td>
+                            <td id="quitBox"><a href="index.html"><p><b>메인으로</b></p></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="boxmiddle">
+                    <div id="p1">
+                        <ul class="pbox">
+                            <li><b>사천성</b></li>
+                            <li>경기 용인시 처인구 명지로116번길 8</li>
+                            <li>Tel : 031-335-8857</li>
+                        </ul>
+                    </div>
+                    <div id="p2">
+                        <ul class="pbox">
+                            <li><b>한솥</b></li>
+                            <li>경기 용인시 처인구 명지로116번길 6</li>
+                            <li>Tel : 031-334-1181</li>
+                        </ul>
+                    </div>
+                    <div id="p3">
+                        <ul class="pbox">
+                            <li><b>맘스터치</b></li>
+                            <li>경기 용인시 처인구 명지로16번길 9-23</li>
+                            <li>Tel : 031-333-0220</li>
+                        </ul>
+                    </div>
+                    <div id="p4">
+                        <ul class="pbox">
+                            <li><b>장수면옥</b></li>
+                            <li>경기 용인시 처인구 명지로60번길 23-3</li>
+                            <li>Tel : 031-339-9981</li>
+                        </ul>
+                    </div>
+                    <div id="p5">
+                        <ul class="pbox">
+                            <li><b>백채김치찌개</b></li>
+                            <li>경기 용인시 처인구 명지로40번길 9 지석프라자 1층 101호</li>
+                            <li>Tel : 031-321-6581</li>
+                        </ul>
+                    </div>
+                    <div id="p6">
+                        <ul class="pbox">
+                            <li><b>하하츠</b></li>
+                            <li>경기 용인시 처인구 명지로60번길 33-11 1층</li>
+                            <li>Tel : 031-333-4500</li>
+                        </ul>
+                    </div>
+                    <div id="p7">
+                        <ul class="pbox">
+                            <li><b>가츠젠</b></li>
+                            <li>경기 용인시 기흥구 구갈로72번길 14</li>
+                            <li>Tel : 031-287-4001</li>
+                        </ul>
+                    </div>
+                    <div id="p8">
+                        <ul class="pbox">
+                            <li><b>피자스쿨</b></li>
+                            <li>경기 용인시 처인구 역북동 760</li>
+                            <li>Tel : 031-339-0900</li>
+                        </ul>
+                    </div>
+                    <div id="p9">
+                        <ul class="pbox">
+                            <li><b>할매순대국</b></li>
+                            <li>경기 용인시 처인구 명지로60번길 15-27</li>
+                            <li>Tel : 031-333-5531</li>
+                        </ul>
+                    </div>
+                    <div id="p10">
+                        <ul class="pbox">
+                            <li><b>전라도손맛</b></li>
+                            <li>경기 용인시 처인구 명지로116번길 27 엘리트원룸 1층</li>
+                            <li>Tel : 031-321-0092</li>
+                        </ul>
+                    </div>
+                    <div id="p11">
+                        <ul class="pbox">
+                            <li><b>호접몽</b></li>
+                            <li>경기 용인시 처인구 명지로 125</li>
+                            <li>Tel : 031-335-9987</li>
+                        </ul>
+                    </div>
+                    <div id="p12">
+                        <ul class="pbox">
+                            <li><b>두부쑤는집</b></li>
+                            <li>경기 용인시 처인구 명지로116번길 35</li>
+                            <li>Tel : 031-339-1485</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

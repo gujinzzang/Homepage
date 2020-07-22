@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset-"UTF-8">
+        <title>오픈 마켓 :: 자 취 가 답 이 다</title>
+        <style>
+            * {
+                padding : 0;
+            }
+            h {
+                color : white;
+            }
+            p { 
+                color : white;
+            }
+            a {
+                color : white;
+                text-decoration : none;
+            }
+            body {
+                font-family : "AppleSDGothicNeoL00";
+                margin : 0;
+                padding : 0;
+                background-image : url(Image/background.jpg);
+                background-size : 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            #pageWrapper {
+                width : 1280px;
+                background-image : url(Image/menubox.png);
+                background-repeat : repeat;
+                margin : 20px auto;
+                padding : 0;
+                overflow : hidden;
+            }
+            #top {
+                width : 990px;
+                height : 300px;
+                margin : 0 145px 0 145px;
+                border-bottom : 1px solid #FFFFFF;
+            }
+            .title {
+                width : 740px;
+                float : left;
+                font-size : 36px;
+                color : white;
+                margin : 80px 0;
+            }
+            .topMenu {
+                width : 80px;
+                float : right;
+                margin : 150px 0;
+            }
+            #contents {
+                display : inline-block;
+                width : 990px;
+                margin : 0 145px 0 145px;
+            }
+            .paper {
+                color : white;
+                margin : 0 23px 0 23px;
+                float : left;
+            }
+            #bottom {
+                display : block;
+                color : #999999;
+                margin-bottom : 20px;
+                text-align : center;
+            }
+        </style>
+        <style>
+            #darken-background {
+                position : absolute;
+                height : 1080px;
+                top : 0;
+                left : 0;
+                right : 0;
+
+                display : none;
+                background : rgba(0, 0, 0, 0.9);
+                z-index : 10000;
+                overflow-y : scroll;
+            }
+            #lightbox {
+                width : 800px;
+                margin : 20px auto;
+                padding : 15px;
+
+                border : 1px solid #333333;
+                border-radius : 5px;
+                background : white;
+                box-shadow : 0 5px 5px rgba(34, 25, 25, 0.4);
+            }
+            .lightbox-splitter {
+                width : 800px;
+                float : left;
+                margin : 10px 0;
+            }
+            #boxtop {
+                display : block;
+            }
+            #quitBox {
+                float : right;
+            }
+            #slidebox {
+                width : 800px;
+                height : 600px;
+                display : block;
+            }
+            #leftButton {
+                float : left;
+            }
+            #centerbox {
+                float : left;
+            }
+            .detailImg {
+                display : inline;
+                margin : 0;
+                padding : 0;
+                border : 0;
+                float : left;
+            }
+            #rightButton {
+                float : left;
+            }
+        </style>
+        
+        <link href="lightbox/css/lightbox.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="lightbox/js/lightbox.js"></script>
+        <script>
+            $(document).ready(function () {
+               var i1 = document.getElementById('i1');
+                i1.src = "image/오픈 마켓/1-1.png" 
+               var i2 = document.getElementById('i2');
+                i2.src = "image/오픈 마켓/2-1.png" 
+               var i3 = document.getElementById('i3');
+                i3.src = "image/오픈 마켓/3-1.png" 
+               var i4 = document.getElementById('i4');
+                i4.src = "image/오픈 마켓/4-1.png" 
+               var i5 = document.getElementById('i5');
+                i5.src = "image/오픈 마켓/5-1.png" 
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                function showLightBox() {
+                    $('#darken-background').show();
+                    $('body').css('overflow', 'hidden');
+                }
+                function hideLightBox() {
+                    $('#darken-background').hide();
+                    $('body').css('overflow', '');
+                }
+
+                $('#quitBox').click(function (event) {
+                    hideLightBox();
+                });
+                $('.paper').click(function (event) {
+                    showLightBox();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                var width = $('[data-role="slider"]').attr('data-width');
+                var height = $('[data-role="slider"]').attr('data-height');
+                var count = $('[data-role="slider"] div.detailImg').length;
+            
+                $('[data-role="slider"]').css({
+                    position: 'relative',
+                    overflow: 'hidden',
+                    width: width,
+                    height: height
+                }).find('.container').css({
+                    position: 'absolute',
+                    width: count * width,
+                    overflow: 'hidden'
+                }).find('.detailImg').css({
+                    width: width,
+                    height: height,
+                    float: 'left'
+                });
+                
+                var currentPage = 0;
+                var changePage = function () {
+                    $('[data-role="slider"] > .container').animate({
+                        left: -currentPage * width
+                    }, 500);
+                };
+                var fastChange = function () {
+                    $('[data-role="slider"] > .container').animate({
+                        left: -currentPage * width
+                    }, 100);
+                };
+                $('.itemImg').click(function (event) {
+                    while (currentPage > 0) {
+                        currentPage = currentPage - 1;
+                        fastChange();
+                    }
+                });
+                $('#i1').click(function (event) {
+                    var img1 = document.getElementById('item1');
+                    img1.src = "image/오픈 마켓/1-1.png";
+                    count = 1;
+                });
+                $('#i2').click(function (event) {
+                    var img1 = document.getElementById('item1');
+                    img1.src = "image/오픈 마켓/2-1.png";
+                    var img2 = document.getElementById('item2');
+                    img2.src = "image/오픈 마켓/2-2.png";
+                    var img3 = document.getElementById('item3');
+                    img3.src = "image/오픈 마켓/2-3.png";
+                    var img4 = document.getElementById('item4');
+                    img4.src = "image/오픈 마켓/2-4.png";
+                    count = 4;
+                });
+                $('#i3').click(function (event) {
+                    var img1 = document.getElementById('item1');
+                    img1.src = "image/오픈 마켓/3-1.png";
+                    var img2 = document.getElementById('item2');
+                    img2.src = "image/오픈 마켓/3-2.png";
+                    var img3 = document.getElementById('item3');
+                    img3.src = "image/오픈 마켓/3-3.png";
+                    var img4 = document.getElementById('item4');
+                    img4.src = "image/오픈 마켓/3-4.png";
+                    count = 4;
+                });
+                $('#i4').click(function (event) {
+                    var img1 = document.getElementById('item1');
+                    img1.src = "image/오픈 마켓/4-1.png";
+                    var img2 = document.getElementById('item2');
+                    img2.src = "image/오픈 마켓/4-2.png";
+                    var img3 = document.getElementById('item3');
+                    img3.src = "image/오픈 마켓/4-3.png";
+                    count = 3;
+                });
+                $('#i5').click(function (event) {
+                    var img1 = document.getElementById('item1');
+                    img1.src = "image/오픈 마켓/5-1.png";
+                    var img2 = document.getElementById('item2');
+                    img2.src = "image/오픈 마켓/5-2.png";
+                    var img3 = document.getElementById('item3');
+                    img3.src = "image/오픈 마켓/5-3.png";
+                    count = 3;
+                });
+                
+                $('#leftButton').click(function () {
+                    if (currentPage > 0) {
+                        currentPage = currentPage - 1;
+                        changePage();
+                    }
+                });
+                $('#rightButton').click(function () {
+                    if (currentPage < count - 1) {
+                        currentPage = currentPage + 1;
+                        changePage();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="pageWrapper">
+            <div id="top">
+                <header class="title">
+                    <h1>Open Market</h1>
+                </header>
+                <nav class="topMenu">
+                    <h2><a href="index.html">main</a></h3>
+                </nav>
+            </div>
+            <section id="contents">
+                <div class="paper">
+                    <a class="itemImg" href="#"><img id="i1" width="200" height="200" /></a>
+                    <ul class="item">
+                        <li class="itemName">명지대식권20장</li>
+                        <li class="itemPrice">18,000</li>
+                        <li class="itemTel">Tel : 010-5035-2823</li>
+                        <li class="itemText">상태 : 최상</li>
+                        <li class="itemText">판매중</li>
+                    </ul>
+                </div>
+                <div class="paper">
+                    <a class="itemImg" href="#"><img id="i2" width="200" height="200" /></a>
+                    <ul class="item">
+                        <li class="itemName">에어팟</li>
+                        <li class="itemPrice">150,000</li>
+                        <li class="itemTel">Tel : 010-3752-9036</li>
+                        <li class="itemText">상태 : 상</li>
+                        <li class="itemText">판매완료</li>
+                    </ul>
+                </div>
+                <div class="paper">
+                    <a class="itemImg" href="#"><img id="i3" width="200" height="200" /></a>
+                    <ul class="item">
+                        <li class="itemName">아이패드</li>
+                        <li class="itemPrice">340,000</li>
+                        <li class="itemTel">Tel : 010-9975-4980</li>
+                        <li class="itemText">상태: 상</li>
+                        <li class="itemText">판매중</li>
+                    </ul>
+                </div>
+                <div class="paper">
+                    <a class="itemImg" href="#"><img id="i4" width="200" height="200" /></a>
+                    <ul class="item">
+                        <li class="itemName">에어프라이어</li>
+                        <li class="itemPrice">90,000</li>
+                        <li class="itemTel">Tel : 010-8025-5920</li>
+                        <li class="itemText">상태: 중</li>
+                        <li class="itemText">판매완료</li>
+                    </ul>
+                </div>
+                <div class="paper">
+                    <a class="itemImg" href="#"><img id="i5" width="200" height="200" /></a>
+                    <ul class="item">
+                        <li class="itemName">유닉스 UN-B1531</li>
+                        <li class="itemPrice">10,000</li>
+                        <li class="itemTel">Tel : 010-8528-9487</li>
+                        <li class="itemText">상태: 상</li>
+                        <li class="itemText">판매완료</li>
+                    </ul>
+                </div>
+            </section>
+            <footer id="bottom">
+                <h5>Myongji University Information &amp; Communications GOD JONG MYONG KYO SOO NIM SA RANG HAE YO </h5>
+            </footer>
+        </div>
+        <div id="darken-background">
+            <div id="lightbox">
+                <hr class="lightbox-splitter" />
+                <div id="boxtop">
+                    <table border="0" width="800">
+                        <tr>
+                            <td id="boxTitle"><h1>Detail Image</h1></td>
+                            <td id="quitBox"><a href="#"><img src="image/closebox.png" width="36" height="36"/></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="slidebox">
+                    <div id="leftButton">
+                        <a href="#"><img src="image/leftarrow.png" width="100" height="600" /></a>
+                    </div>
+                    <div id="centerbox">
+                        <div data-role="slider" data-width="600" data-height="600">
+                            <div class="container">
+                                <div class="detailImg">
+                                    <img id="item1" width="600" height="600" />
+                                </div>
+                                <div class="detailImg">
+                                    <img id="item2" width="600" height="600" />
+                                </div>
+                                <div class="detailImg">
+                                    <img id="item3" width="600" height="600" />
+                                </div>
+                                <div class="detailImg">
+                                    <img id="item4" width="600" height="600" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="rightButton">
+                        <a href="#"><img src="image/rightarrow.png" width="100" height="600" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

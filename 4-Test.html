@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>방 검색 :: 자 취 가 답 이 다</title>
+        <style>
+            * {
+                margin 0;
+                padding : 0;
+            }
+            h {
+                color : white;
+            }
+            a {
+                color : white;
+                text-decoration : none;
+            }
+            ul {
+                list-style: none;
+            }
+            body {
+                font-family : "AppleSDGothicNeoL00";
+                margin : 0;
+                padding : 0;
+                background-image : url(Image/background.jpg);
+                background-size : 100%;
+                background-repeat: none;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            #pageWrapper {
+                width : 1280px;
+                background-image : url(Image/menubox.png);
+                background-repeat : repeat;
+                margin : 20px auto;
+                padding : 0;
+                overflow : hidden;
+            }
+            #top {
+                width : 990px;
+                height : 300px;
+                margin : 0 145px 0 145px;
+                border-bottom : 1px solid #FFFFFF;
+            }
+            .title {
+                width : 740px;
+                float : left;
+                font-size : 36px;
+                color : white;
+                margin : 80px 0;
+            }
+            .topMenu {
+                width : 80px;
+                float : right;
+                margin : 150px 0;
+            }
+            #contents {
+                display : inline-block;
+                color : white;
+                width : 990px;
+                margin : 0 145px 0 145px;
+            }
+            .paper {
+                margin : 0 15px 0 15px;
+                float : left;
+            }
+            #bottom {
+                display: block;
+                color : #999999;
+                text-align : center;
+            }
+        </style>
+        <style>
+            #darken-background {
+                position : absolute;
+                height : 1080px;
+                top : 0;
+                left : 0;
+                right : 0;
+
+                display : none;
+                background : rgba(0, 0, 0, 0.9);
+                z-index : 10000;
+                overflow-y : scroll;
+            }
+
+            #lightbox {
+                width : 700px;
+                margin : 20px auto;
+                padding : 15px;
+
+                border : 1px solid #333333;
+                border-radius : 5px;
+                background : white;
+                box-shadow : 0 5px 5px rgba(34, 25, 25, 0.4);
+            }
+            
+            .lightbox-splitter {
+                width : 700px;
+                float : left;
+                margin : 10px 0;
+            }
+            #information-box {
+                width : 280px;
+                height : 380px;
+                margin : 10px;
+                float : right;
+                text-align : left;
+            }
+            .priceText {
+                text-align : right;
+            }
+        </style>
+        <link href="lightbox/css/lightbox.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="lightbox/js/lightbox.js"></script>
+        <script>
+            $(document).ready(function () {
+                function showLightBox() {
+                    $('#darken-background').show();
+                    $('body').css('overflow', 'hidden');
+                }
+                function hideLightBox() {
+                    $('#darken-background').hide();
+                    $('body').css('overflow', '');
+                }
+                $('#darken-background').click(function (event) {
+                    hideLightBox();
+                });
+                $('.foodImage').click(function (event) {
+                    showLightBox();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="tab12" class="tab_content_b">
+            <p class="ctc">이용후기</p>
+        <div style="clear:both;">
+            <div class="ntitle">
+                <li class="subject">
+                    <a href='./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=209'>민교룸 벌레나와요</a> <a href="./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=209">(1)</a>       </li>
+
+      <li class="date">
+         08-11      </li>
+
+    </div>
+
+    <div class="ntitle">
+      <li class="subject">
+             <a href='./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=205'>즐겁게 놀다 갑니다.</a> <a href="./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=205">(1)</a>       </li>
+
+      <li class="date">
+         06-05      </li>
+
+    </div>
+
+    <div class="ntitle">
+      <li class="subject">
+             <a href='./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=201'>민교룸은 거의 자연이네요</a> <a href="./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=201">(1)</a>       </li>
+
+      <li class="date">
+         06-01      </li>
+
+    </div>
+
+    <div class="ntitle">
+      <li class="subject">
+             <a href='./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=200'>조금 늦은 이용후기..ㅎㅎ</a>       </li>
+
+      <li class="date">
+         05-12      </li>
+
+    </div>
+
+    <div class="ntitle">
+      <li class="subject">
+             <a href='./VIS_bbs/board.php?bo_table=s6_4&amp;wr_id=198'>너무너무좋았어요</a>       </li>
+
+      <li class="date">
+         11-17      </li>
+
+    </div>
+
+</div>
+    </body>
+</html>

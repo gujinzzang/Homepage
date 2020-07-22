@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>방 검색 :: 자 취 가 답 이 다</title>
+        <style>
+            * {
+                margin 0;
+                padding : 0;
+            }
+            h {
+                color : white;
+            }
+            a {
+                color : white;
+                text-decoration : none;
+            }
+            ul {
+                list-style: none;
+            }
+            body {
+                font-family : "AppleSDGothicNeoL00";
+                margin : 0;
+                padding : 0;
+                background-image : url(Image/background.jpg);
+                background-size : 100%;
+                background-repeat: none;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            #pageWrapper {
+                width : 1280px;
+                background-image : url(Image/menubox.png);
+                background-repeat : repeat;
+                margin : 20px auto;
+                padding : 0;
+                overflow : hidden;
+            }
+            #top {
+                width : 990px;
+                height : 300px;
+                margin : 0 145px 0 145px;
+                border-bottom : 1px solid #FFFFFF;
+            }
+            .title {
+                width : 740px;
+                float : left;
+                font-size : 36px;
+                color : white;
+                margin : 80px 0;
+            }
+            .topMenu {
+                width : 80px;
+                float : right;
+                margin : 150px 0;
+            }
+            #contents {
+                display : inline-block;
+                color : white;
+                width : 990px;
+                margin : 0 145px 0 145px;
+            }
+            .paper {
+                margin : 0 15px 0 15px;
+                float : left;
+            }
+            #bottom {
+                display: block;
+                color : #999999;
+                text-align : center;
+            }
+        </style>
+        <style>
+            #darken-background {
+                position : absolute;
+                height : 1080px;
+                top : 0;
+                left : 0;
+                right : 0;
+
+                display : none;
+                background : rgba(0, 0, 0, 0.9);
+                z-index : 10000;
+                overflow-y : scroll;
+            }
+
+            #lightbox {
+                width : 700px;
+                margin : 20px auto;
+                padding : 15px;
+
+                border : 1px solid #333333;
+                border-radius : 5px;
+                background : white;
+                box-shadow : 0 5px 5px rgba(34, 25, 25, 0.4);
+            }
+            
+            .lightbox-splitter {
+                width : 700px;
+                float : left;
+                margin : 10px 0;
+            }
+            #information-box {
+                width : 280px;
+                height : 380px;
+                margin : 10px;
+                float : right;
+                text-align : left;
+            }
+            .priceText {
+                text-align : right;
+            }
+        </style>
+        <link href="lightbox/css/lightbox.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="lightbox/js/lightbox.js"></script>
+        <script>
+            $(document).ready(function () {
+                function showLightBox() {
+                    $('#darken-background').show();
+                    $('body').css('overflow', 'hidden');
+                }
+                function hideLightBox() {
+                    $('#darken-background').hide();
+                    $('body').css('overflow', '');
+                }
+                $('#darken-background').click(function (event) {
+                    hideLightBox();
+                });
+                $('.foodImage').click(function (event) {
+                    showLightBox();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="pageWrapper">
+            <div id="top">
+                <header class="title">
+                    <h1>Famous Food </h1>
+                </header>
+                <nav class="topMenu">
+                    <h2><a href="index.html">main</a></h3>
+                </nav>
+            </div>
+            <section id="contents">
+                <div class="paper">
+                    <a class="foodImage" href="#"><img src="image/음식사진/연어가/기본배경.PNG"width="300" height="300" /></a>
+                    <p class="foodText"><a href="#">연어가</a></p>
+                </div>
+                <div class="paper">
+                    <a class="foodImage" href="#"><img src="image/음식사진/두부쑤는집/기본배경.PNG"width="300" height="300" /></a>
+                    <p class="foodText"><a href="#">두부쑤는집</a></p>
+                </div>
+                <div class="paper">
+                    <a class="foodImage" href="#"><img src="image/음식사진/가온누리/기본배경.PNG" width="300" height="300" /></a>
+                    <p class="foodText"><a href="#">가온누리</a></p>
+                </div>
+            </section>
+            <footer id="bottom">
+                <h5>Myongji University Information &amp; Communications GOD JONG MYONG KYO SOO NIM SA RANG HAE YO </h5>
+            </footer>
+        </div>
+        <div id="darken-background">
+            <div id="lightbox">
+                <hr class="lightbox-splitter">
+                   <img src="http://placehold.it/400x400" />
+                </hr>
+                <div id="information-box">
+                    <table border="0" width="300">
+                        <thead>
+                            <tr>
+                                <td class="boxtTitle"><h1><b>TITLE</b></h1></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="itemTitle"><b>평점</b></td>
+                                <td class="itemText">0.0/5.0</td>
+                            </tr>
+                            <tr>
+                                <td class="itemTitle"><b>주소</b></td>
+                                <td class="itemText">Address</td>
+                            <tr>
+                                <td class="itemTitle"><b>영업시간</b></td>
+                                <td class="itemText">AM ~ PM</td>
+                            </tr>
+                            <tr>
+                                <td class="itemTitle"><b>전화번호</b></td>
+                                <td class="itemText">031-000-0000</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="boxTitle"><h3><b>가격</b></h3></td>
+                            </tr>
+                            <tr>
+                                <td class="priceTitle">메뉴</td>
+                                <td class="priceText">00,000원</td>
+                            </tr>
+                            <tr>
+                                <td class="priceTitle">메뉴</td>
+                                <td class="priceText">00,000원</td>
+                            </tr>
+                            <tr>
+                                <td class="priceTitle">메뉴</td>
+                                <td class="priceText">00,000원</td>
+                            </tr>
+                            <tr>
+                                <td class="priceTitle">메뉴</td>
+                                <td class="priceText">00,000원</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div id="review-box">
+                    <table border="0">
+                        <thead>
+                            <tr>
+                                <td class="boxTitle"><h3><b>Review</b></h3></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="score">3.5/5.0</td>
+                                <td class="riview">맛은 있는데 영업시간이 완전 지멋대로임...</td>
+                            </tr>
+                            <tr>
+                                <td class="score">5.0/5.0</td>
+                                <td class="riview">완전 짱짱 존맛탱구리!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

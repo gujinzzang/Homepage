@@ -1,0 +1,549 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>방 정보 :: 자 취 가 답 이 다</title>
+        <style>
+            * {
+                padding : 0;
+            }
+            h {
+                color : white;
+            }
+            h3 {
+                margin : 20px 0 20px 0;
+            }
+            a {
+                color : white;
+                text-decoration : none;
+            }
+            ul {
+                list-style: none;
+            }
+            body {
+                font-family : "AppleSDGothicNeoL00";
+                margin : 0;
+                padding : 0;
+                background-image : url(Image/background.jpg);
+                background-size : 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            #pageWrapper {
+                width : 1280px;
+                background-image : url(Image/menubox.png);
+                background-repeat : repeat;
+                margin : 20px auto;
+                padding : 0;
+                overflow : hidden;
+            }
+            #top {
+                width : 990px;
+                height : 300px;
+                margin : 0 145px 0 145px;
+                border-bottom : 1px solid #FFFFFF;
+            }
+            .title {
+                width : 740px;
+                float : left;
+                font-size : 36px;
+                color : white;
+                margin : 80px 0;
+            }
+            .topMenu {
+                width : 80px;
+                float : right;
+                margin : 150px 0;
+            }
+            #contents {
+                display : inline-block;
+                color : white;
+                width : 990px;
+                margin : 0 145px 0 145px;
+            }
+            .foodText {
+                margin : 10px 0 10px 0;
+            }
+            .paper {
+                margin : 0 15px 0 15px;
+                float : left;
+            }
+            #bottom {
+                display: block;
+                margin-bottom : 20px;
+                color : #999999;
+                text-align : center;
+            }
+        </style>
+        <style>
+            #darken-background {
+                position : absolute;
+                height : 1080px;
+                top : 0;
+                left : 0;
+                right : 0;
+
+                display : none;
+                background : rgba(0, 0, 0, 0.9);
+                z-index : 10000;
+                overflow-y : scroll;
+            }
+
+            #lightbox {
+                width : 800px;
+                margin : 20px auto;
+                padding : 15px;
+
+                border : 1px solid #333333;
+                border-radius : 5px;
+                background : white;
+                box-shadow : 0 5px 5px rgba(34, 25, 25, 0.4);
+            }
+            
+            .lightbox-splitter {
+                width : 800px;
+                float : left;
+                margin : 10px 0;
+            }
+            #information-box {
+                width : 380px;
+                height : 380px;
+                margin : 10px;
+                float : right;
+                text-align : left;
+            }
+            #quitBox {
+                text-align : right;
+            }
+            .itemTitle {
+                width : 100px;
+            }
+            .priceTitle {
+                width : 100px;
+            }
+            .priceText {
+                text-align : right;
+            }
+            #detail-box {
+                display : block;
+            }
+            #detailImage {
+                display : inline;
+                margin : 10px;
+            }
+        </style>
+        <link href="lightbox/css/lightbox.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="lightbox/js/lightbox.js"></script>
+        <script>
+            $(document).ready(function () {
+                var f1 = document.getElementById('f1');
+                f1.src = "image/집정보/1번/2.bmp";
+                var f2 = document.getElementById('f2');
+                f2.src = "image/집정보/2번/2.bmp";
+                var f3 = document.getElementById('f3');
+                f3.src = "image//집정보/3번/2.bmp";
+                var f4 = document.getElementById('f4');
+                f4.src = "image//집정보/4번/2.bmp";
+
+                function showLightBox() {
+                    $('#darken-background').show();
+                    $('body').css('overflow', 'hidden');
+                }
+                function hideLightBox() {
+                    $('#darken-background').hide();
+                    $('body').css('overflow', '');
+                }
+
+                $('#quitBox').click(function (event) {
+                    hideLightBox();
+                });
+                $('#f1').click(function (event) {
+                    f1 = document.getElementById('foodImage');
+                    f1.src = "image/집정보/1번/2.bmp";
+                    f1.width = 400;
+                    f1.height = 400;
+                    showLightBox();
+                });
+                $('#f2').click(function (event) {
+                    f2 = document.getElementById('foodImage');
+                    f2.src = "image/집정보/2번/2.bmp";
+                    showLightBox();
+                });
+                $('#f3').click(function (event) {
+                    f3 = document.getElementById('foodImage');
+                    f3.src = "image//집정보/3번/2.bmp";
+                    showLightBox();
+                });
+                  $('#f4').click(function (event) {
+                    f4 = document.getElementById('foodImage');
+                    f4.src = "image/집정보/4번/2.bmp";
+                    showLightBox();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#f1').click(function (event) {
+                    var boxTitle = document.getElementById('boxTitle');
+                    boxTitle.innerHTML = '<h1><b><월세>200/35</b></h1>';
+                    var itemScore = document.getElementById('itemScore');
+                    itemScore.innerHTML = '200/<b>35</b>';
+                    var itemAddr = document.getElementById('itemAddr');
+                    itemAddr.innerHTML = '경기도 용인시 처인구 남동 덕곡마을';
+                    var itemOpen = document.getElementById('itemOpen');
+                    itemOpen.innerHTML = '6평';
+                    var itemTel = document.getElementById('itemTel');
+                    itemTel.innerHTML = '5만원';
+                });
+                $('#f2').click(function (event) {
+                    var boxTitle = document.getElementById('boxTitle');
+                    boxTitle.innerHTML = '<h1><b><전세> 5500</b></h1>';
+                    var itemScore = document.getElementById('itemScore');
+                    itemScore.innerHTML = '5500/<b>0</b>';
+                    var itemAddr = document.getElementById('itemAddr');
+                    itemAddr.innerHTML = '경기도 용인시 처인구 남동 덕곡마을';
+                    var itemOpen = document.getElementById('itemOpen');
+                    itemOpen.innerHTML = '6평';
+                    var itemTel = document.getElementById('itemTel');
+                    itemTel.innerHTML = '10만원';
+                });
+                $('#f3').click(function (event) {
+                    var boxTitle = document.getElementById('boxTitle');
+                    boxTitle.innerHTML = '<h1><b><월세> 200/45</b></h1>';
+                    var itemScore = document.getElementById('itemScore');
+                    itemScore.innerHTML = '200/<b>45</b>';
+                    var itemAddr = document.getElementById('itemAddr');
+                    itemAddr.innerHTML = '경기도 용인시 처인구 남동 동진마을';
+                    var itemOpen = document.getElementById('itemOpen');
+                    itemOpen.innerHTML = '10평';
+                    var itemTel = document.getElementById('itemTel');
+                    itemTel.innerHTML = '없음';
+                });
+                 $('#f4').click(function (event) {
+                    var boxTitle = document.getElementById('boxTitle');
+                    boxTitle.innerHTML = '<h1><b><월세>500/45</b></h1>';
+                    var itemScore = document.getElementById('itemScore');
+                    itemScore.innerHTML = '500/<b>45</b>';
+                    var itemAddr = document.getElementById('itemAddr');
+                    itemAddr.innerHTML = '경기도 용인시 처인구 역북동';
+                    var itemOpen = document.getElementById('itemOpen');
+                    itemOpen.innerHTML = '6평';
+                    var itemTel = document.getElementById('itemTel');
+                    itemTel.innerHTML = '5만원';
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#f1').click(function (event) {
+                    var review = document.getElementById('review');
+                    review.innerHTML = '헤헤';
+                });
+                $('#f2').click(function (event) {
+                    var review = document.getElementById('review');
+                    review.innerHTML = '헤헤';
+                });
+                $('#f3').click(function (event) {
+                    var review = document.getElementById('review');
+                    review.innerHTML = '헤헤';
+                });
+                 $('#f4').click(function (event) {
+                    var review = document.getElementById('review');
+                    review.innerHTML = '헤헤';
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#f1').click(function (event) {
+                    var price1 = document.getElementById('price1');
+                    price1.innerHTML = '<td class="priceTitle">엘리베이터</td><td class="priceText">X</td>';
+                    var price2 = document.getElementById('price2');
+                    price2.innerHTML = '<td class="priceTitle">주차</td><td class="priceText">O</td>';
+                    var price3 = document.getElementById('price3');
+                    price3.innerHTML = '<td class="priceTitle">추가옵션</td><td class="priceText">에어컨, 세탁기, 침대, 책상, 신발장, 가스레인지, 전자레인지</td>';
+                });
+                $('#f2').click(function (event) {
+                    var price1 = document.getElementById('price1');
+                    price1.innerHTML = '<td class="priceTitle">엘리베이터</td><td class="priceText">O</td>';
+                    var price2 = document.getElementById('price2');
+                    price2.innerHTML = '<td class="priceTitle">주차</td><td class="priceText">O</td>';
+                    var price3 = document.getElementById('price3');
+                    price3.innerHTML = '<td cclass="priceTitle">추가옵션</td><td class="priceText">세탁기, 침대, 책상, 옷장, 냉장고, 가스레인지, 인덕션, 전자레인지</td>';
+                    
+                });
+                $('#f3').click(function (event) {
+                    var price1 = document.getElementById('price1');
+                    price1.innerHTML = '<td class="priceTitle">엘리베이터</td><td class="priceText">O</td>';
+                    var price2 = document.getElementById('price2');
+                    price2.innerHTML = '<td class="priceTitle">주차</td><td class="priceText">O</td>';
+                    var price3 = document.getElementById('price3');
+                    price3.innerHTML = '<td class="priceTitle">추가옵션</td><td class="priceText">세탁기, 침대, 책상, 옷장, 냉장고, 가스레인지, 인덕션, 전자레인지</td>';
+                   
+                });
+                  $('#f4').click(function (event) {
+                    var price1 = document.getElementById('price1');
+                    price1.innerHTML = '<td class="priceTitle">엘리베이터</td><td class="priceText">X</td>';
+                    var price2 = document.getElementById('price2');
+                    price2.innerHTML = '<td class="priceTitle">주차</td><td class="priceText">O</td>';
+                    var price3 = document.getElementById('price3');
+                    price3.innerHTML = '<td class="priceTitle">추가옵션</td><td class="priceText">에어컨, 세탁기, 책상, 옷장, TV, 냉장고, 가스레인지, 전자레인지, 전자도어락</td>';
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#f1').click(function (event) {
+                    var img1 = document.getElementById('img1');
+                    img1.src = "image/집정보/1번/1.bmp";
+                    var img2 = document.getElementById('img2');
+                    img2.src = "image/집정보/1번/2.bmp";
+                    var img3 = document.getElementById('img3');
+                    img3.src = "image/집정보/1번/3.bmp";
+                    var img4 = document.getElementById('img4');
+                    img4.src = "image/집정보/1번/4.bmp";
+                      var img5 = document.getElementById('img5');
+                    img5.src = "image/집정보/1번/5.png";
+                 
+                    $('#img1').click(function (event) {
+                        var img1 = document.getElementById('foodImage');
+                        img1.src = "image/집정보/1번/1.bmp";
+                    });
+                    $('#img2').click(function (event) {
+                        var img2 = document.getElementById('foodImage');
+                        img2.src = "image/집정보/1번/2.bmp";
+                    });
+                    $('#img3').click(function (event) {
+                        var img3 = document.getElementById('foodImage');
+                        img3.src = "image/집정보/1번/3.bmp";
+                    });
+                    $('#img4').click(function (event) {
+                        var img4 = document.getElementById('foodImage');
+                        img4.src = "image/집정보/1번/4.bmp";
+                    });
+                    $('#img5').click(function (event) {
+                        var img5 = document.getElementById('foodImage');
+                        img5.src = "image/집정보/1번/5.PNG";
+                    });
+                   
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#f2').click(function (event) {
+                    var img1 = document.getElementById('img1');
+                    img1.src = "image/집정보/2번/1.bmp";
+                    var img2 = document.getElementById('img2');
+                    img2.src = "image/집정보/2번/2.bmp";
+                    var img3 = document.getElementById('img3');
+                    img3.src = "image/집정보/2번/3.bmp";
+                    var img4 = document.getElementById('img4');
+                    img4.src = "image/집정보/2번/4.bmp";
+                    var img5 = document.getElementById('img5');
+                    img5.src = "image/집정보/2번/5.PNG";
+                    $('#img1').click(function (event) {
+                        var img1 = document.getElementById('foodImage');
+                            img1.src = "image/집정보/2번/1.bmp";
+                    });
+                    $('#img2').click(function (event) {
+                            var img2 = document.getElementById('foodImage');
+                        img2.src = "image/집정보/2번/2.bmp";
+                    });
+                        $('#img3').click(function (event) {
+                        var img3 = document.getElementById('foodImage');
+                        img3.src = "image/집정보/2번/3.bmp";
+                    });
+                    $('#img4').click(function (event) {
+                        var img4 = document.getElementById('foodImage');
+                        img4.src = "image/집정보/2번/4.bmp";
+                    });
+                    $('#img5').click(function (event) {
+                        var img5 = document.getElementById('foodImage');
+                        img5.src = "image/집정보/2번/5.PNG";
+                    });
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#f3').click(function (event) {
+                    var img1 = document.getElementById('img1');
+                    img1.src = "image/집정보/3번/1.bmp";
+                    var img2 = document.getElementById('img2');
+                    img2.src = "image/집정보/3번/2.bmp";
+                    var img3 = document.getElementById('img3');
+                    img3.src = "image/집정보/3번/3.bmp";
+                    var img4 = document.getElementById('img4');
+                    img4.src = "image/집정보/3번/4.bmp";
+                    var img5 = document.getElementById('img5');
+                    img5.src = "image/집정보/3번/5.PNG";
+                    $('#img1').click(function (event) {
+                        var img1 = document.getElementById('foodImage');
+                        img1.src = "image/집정보/3번/1.bmp";
+                    });
+                    $('#img2').click(function (event) {
+                        var img2 = document.getElementById('foodImage');
+                        img2.src = "image/집정보/3번/2.bmp";
+                    });
+                    $('#img3').click(function (event) {
+                        var img3 = document.getElementById('foodImage');
+                        img3.src = "image/집정보/3번/3.bmp";
+                    });
+                    $('#img4').click(function (event) {
+                        var img4 = document.getElementById('foodImage');
+                        img4.src = "image/집정보/3번/4.bmp";
+                    });
+                    $('#img5').click(function (event) {
+                        var img5 = document.getElementById('foodImage');
+                        img5.src = "image/집정보/3번/5.PNG";
+                    });
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#f4').click(function (event) {
+                    var img1 = document.getElementById('img1');
+                    img1.src = "image/집정보/4번/1.bmp";
+                    var img2 = document.getElementById('img2');
+                    img2.src = "image/집정보/4번/2.bmp";
+                    var img3 = document.getElementById('img3');
+                    img3.src = "image/집정보/4번/3.bmp";
+                    var img4 = document.getElementById('img4');
+                    img4.src = "image/집정보/4번/4.bmp";
+                    var img5 = document.getElementById('img5');
+                    img5.src = "image/집정보/4번/5.PNG";
+                    $('#img1').click(function (event) {
+                        var img1 = document.getElementById('foodImage');
+                            img1.src = "image/집정보/4번/1.bmp";
+                    });
+                    $('#img2').click(function (event) {
+                            var img2 = document.getElementById('foodImage');
+                        img2.src = "image/집정보/4번/2.bmp";
+                    });
+                        $('#img3').click(function (event) {
+                        var img3 = document.getElementById('foodImage');
+                        img3.src = "image/집정보/4번/3.bmp";
+                    });
+                    $('#img4').click(function (event) {
+                        var img4 = document.getElementById('foodImage');
+                        img4.src = "image/집정보/4번/4.bmp";
+                    });
+                    $('#img5').click(function (event) {
+                        var img5 = document.getElementById('foodImage');
+                        img5.src = "image/집정보/4번/5.PNG";
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="pageWrapper">
+            <div id="top">
+                <header class="title">
+                    <h1>Room Info</h1>
+                </header>
+                <nav class="topMenu">
+                    <h2><a href="index.html">main</a></h3>
+                </nav>
+            </div>
+            <section id="contents">
+                <div class="paper">
+                    <a class="foodImage" href="#"><img id="f1" width="300" height="300"/></a>
+                    <p class="foodText"><a href="#">강남오피스텔</a></p>
+                </div>
+                <div class="paper">
+                    <a class="foodImage" href="#"><img id="f2" width="300" height="300"/></a>
+                    <p class="foodText"><a href="#">덕곡오피스텔</a></p>
+                </div>
+                <div class="paper">
+                    <a class="foodImage" href="#"><img id="f3" width="300" height="300"/></a>
+                    <p class="foodText"><a href="#">역북동 빌라</a></p>
+                </div>
+                      <div class="paper">
+                    <a class="foodImage" href="#"><img id="f4" width="300" height="300"/></a>
+                    <p class="foodText"><a href="#">명지오피스텔</a></p>
+                </div>
+            </section>
+            <footer id="bottom">
+                <h5>Myongji University Information &amp; Communications GOD JONG MYONG KYO SOO NIM SA RANG HAE YO</h5>
+            </footer>
+        </div>
+        <div id="darken-background">
+            <div id="lightbox">
+                <hr class="lightbox-splitter">
+                   <img id="foodImage" width="400" height="400"/>
+                </hr>
+
+                <div id="information-box">
+                    <table border="0" width="390">
+                        <thead>
+                            <tr>
+                                <td id="boxTitle">TITLE</td>
+                                <td id="quitBox" ><a href="#"><img src="image/closebox.png" width="36" height="36"/></a></td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table border="0" width="390">
+                        <tbody>
+                            <tr>
+                                <td class="itemTitle"><b>가격</b></td>
+                                <td id="itemScore">0.0/5.0</td>
+                            </tr>
+                            <tr>
+                                <td class="itemTitle"><b>주소</b></td>
+                                <td id="itemAddr">Address</td>
+                            <tr>
+                                <td class="itemTitle"><b>크기</b></td>
+                                <td id="itemOpen">AM ~ PM</td>
+                            </tr>
+                            <tr>
+                                <td class="itemTitle"><b>관리비</b></td>
+                                <td id="itemTel">031-000-0000</td>
+                            </tr>
+                        </tbody>
+                    <table border="0" width="390">
+                        <tfoot>
+                            <tr>
+                                <td class="boxTitle"><h3><b>옵션</b></h3></td>
+                            </tr>
+                            <tr id="price1"></tr>
+                            <tr id="price2"></tr>
+                            <tr id="price3"></tr>
+                            <tr id="price4"></tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div id="detail-box">
+                    <h3 id="detailTitle"><b>Detail Image</b></h3>
+                    <div id="detailImage">
+                        <a href="#"><img id="img1" width="150" height="150" /></a>
+                        <a href="#"><img id="img2" width="150" height="150" /></a>
+                        <a href="#"><img id="img3" width="150" height="150" /></a>
+                        <a href="#"><img id="img4" width="150" height="150" /></a>
+                        <a href="#"><img id="img5" width="150" height="150" /></a>
+                    </div>
+                </div>
+
+                <div id="review-box">
+                    <table border="0">
+                        <thead>
+                            <tr>
+                                <td class="boxTitle"><h3><b>상세 설명</b></h3></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="review">Example Test</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

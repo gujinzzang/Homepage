@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/htm14/loose.dtd>
+<html lang="ko">
+    <head>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8">
+        <title>방 정보 :: 자 취 가 답 이 다</title>
+        <style>
+           * {
+                padding : 0;
+            }
+            h {
+                color : white;
+            }
+            h2 {
+            	margin : 20px 0 20px 0;
+            }
+            a {
+                color : white;
+                text-decoration : none;
+            }
+            ul {
+                list-style: none;
+            }
+            body {
+                font-family : "AppleSDGothicNeoL00";
+                margin : 0;
+                padding : 0;
+                background-image : url(Image/background.jpg);
+                background-size : 100%;
+                background-repeat: none;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            #pageWrapper {
+                width : 1280px;
+                background-image : url(Image/menubox.png);
+                background-repeat : repeat;
+                margin : 20px auto;
+                padding : 0;
+                overflow : hidden;
+            }
+            #top {
+                width : 990px;
+                height : 300px;
+                display : block;
+                margin : 0 145px 0 145px;
+                border-bottom : 1px solid #FFFFFF;
+            }
+            .title {
+                width : 740px;
+                float : left;
+                font-size : 36px;
+                color : white;
+                margin : 80px 0;
+            }
+            .topMenu {
+                width : 80px;
+                float : right;
+                margin : 150px 0;
+            }
+            .bbs {
+                background-color : rgba(0, 0, 0, 0.1);
+                margin: 20px 145px;
+                padding : inherit;
+                overflow :hidden;
+                color: white;
+            }
+            .paper {
+                margin : 0 15px 0 15px;
+                float : left;
+            }
+            .postname {
+                width : 600px;
+            }
+            #buttonbox {
+                display : block;
+                float : right;
+                width : 990px;
+                height : 50px;
+                margin: 20px 145px;
+            }
+            #bottom {
+                display : block;
+                width : 1280px;
+                margin-bottom : 20px;
+                color : #999999;
+                text-align : center;
+            }
+        </style>
+          <style>
+            #darken-background {
+                position : absolute;
+                height : 1080px;
+                top : 0;
+                left : 0;
+                right : 0;
+
+                display : none;
+                background : rgba(0, 0, 0, 0.9);
+                z-index : 10000;
+                overflow-y : scroll;
+            }
+
+            #lightbox {
+                width : 800px;
+                margin : 20px auto;
+                padding : 15px;
+
+                border : 1px solid #333333;
+                border-radius : 5px;
+                background : white;
+                box-shadow : 0 5px 5px rgba(34, 25, 25, 0.4);
+            }
+            
+            .lightbox-splitter {
+                width : 800px;
+                float : left;
+                margin : 10px 0;
+            }
+            #boxtop {
+                display : block;
+            }
+            #quitBox {
+                float : right;
+            }
+        </style>
+        <link href="lightbox/css/lightbox.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="lightbox/js/lightbox.js"></script>
+        <script>
+            $(document).ready(function () {
+                function showLightBox() {
+                    $('#darken-background').show();
+                    $('body').css('overflow', 'hidden');
+                }
+                function hideLightBox() {
+                    $('#darken-background').hide();
+                    $('body').css('overflow', '');
+                }
+                
+                var pn1 = document.getElementById('pn1');
+                pn1.innerHTML = '손 쉬운 자취생 떡볶이 만들기 데헷★';
+                var pn2 = document.getElementById('pn2');
+                pn2.innerHTML = '나만의 첫 아지트 소개합니다~';
+                var pn3 = document.getElementById('pn3');
+                pn3.innerHTML = '새로운 집 모두 구경해보세요 횐님덜^^';
+                var pn4 = document.getElementById('pn4');
+                pn4.innerHTML = 'TV 장만했어욧!';
+                
+                $('#quitBox').click(function (event) {
+                    hideLightBox();
+                });
+                $('.postname1').click(function (event) {
+                    var pn1 = document.getElementById('boxTitle');
+                    pn1.innerHTML = '손 쉬운 자취생 떡볶이 만들기 데헷★';
+                    var p1 = document.getElementById('imgbox');
+                    p1.src = "image/자랑자랑/dd.png";
+                    showLightBox();
+                });
+                $('.postname2').click(function (event) {
+                    pn2 = document.getElementById('boxTitle');
+                    pn2.innerHTML = '나만의 첫 아지트 소개합니다~';
+                    var p2 = document.getElementById('imgbox');
+                    p2.src = "image/자랑자랑/jj.png";
+                    showLightBox();
+                });
+                $('.postname3').click(function (event) {
+                    pn3 = document.getElementById('boxTitle');
+                    pn3.innerHTML = '새로운 집 모두 구경해보세요 횐님덜^^';
+                    var p3 = document.getElementById('imgbox');
+                    p3.src = "image/자랑자랑/ii.png";
+                    showLightBox();
+                });
+                  $('.postname4').click(function (event) {
+                    pn4 = document.getElementById('boxTitle');
+                    pn4.innerHTML = 'TV 장만했어욧!';
+                    var p4 = document.getElementById('imgbox');
+                    p4.src = "image/자랑자랑/zz.png";
+                    showLightBox();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.postname1').click(function (event) {
+                    var textbox = document.getElementById('textbox');
+                    textbox.innerHTML = '<b>떡볶이 만들기 재료</b><br/>다진마늘, 고추장, 설탕 (or 물엿), 고춧가루, 어묵, 떡볶이 떡<br/><br/><b>만드는 과정</b><br/>1. 떡을 물에 살짝 데쳐서 해동합니다.<br/>2. 후라이팬에 기름을 두르고 다진 마늘은 2스푼 넣어 중불에 볶고 물을 4컵 넣습니다.<br/>3. 고추장과 설탕3컵을 넣습니다.<br/>4.계란을 삶고 후라이팬에 넣은 재료들을 볶습니다.5. 완성!';
+                });
+                $('.postname2').click(function (event) {
+                    var textbox = document.getElementById('textbox');
+                    textbox.innerHTML = '어느새 자취한지 1년이 훌쩍 넘었네요ㅜ.ㅜ<br/>부모님 도움 없이 시작하게 된 자취이지만 혼자 집안일 하며 많이 늘게된것도있어서 매일매일 배우게되는거 같아요!!';
+                });
+                $('.postname3').click(function (event) {
+                    var textbox = document.getElementById('textbox');
+                    textbox.innerHTML = '이사한 집입니다~<br/>이사했는데 뭔가 더꾸미고 싶어요ㅜㅜ<br/>어떻게 꾸미면 좋을지 알려주세요~<br/>정보공유좀여 횐님덜~~~';
+                });
+                $('.postname4').click(function (event) {
+                    var textbox = document.getElementById('textbox');
+                    textbox.innerHTML = '고민 끝에 과감히~ 6개월 할부로~~ 구매했답니다 ㅎㅎ';
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.postname1').click(function (event) {
+                    var c11 = document.getElementById('cName1');
+                    c11.innerHTML = '<b>건아</b>';
+                    var c12 = document.getElementById('cText1');
+                    c12.innerHTML = '떡볶이 너무 맛있어보여요~ 야식으로 먹기 정말 좋겠군여 한입만요~';
+                    var c13 = document.getElementById('cTime1');
+                    c13.innerHTML = '2018/11/27';
+                });
+                $('.postname2').click(function (event) {
+                    var c11 = document.getElementById('cName1');
+                    c11.innerHTML = '<b>모리</b>';
+                    var c12 = document.getElementById('cText1');
+                    c12.innerHTML = '깔끔하고 아늑하네요~^^ 집 너무 예뻐요. ';
+                    var c13 = document.getElementById('cTime1');
+                    c13.innerHTML = '2018/11/28';
+                    var c21 = document.getElementById('cName2');
+                    c21.innerHTML = '<b>개코코코몽</b>';
+                    var c22 = document.getElementById('cText2');
+                    c22.innerHTML = '집구조가 좋네요! 이런곳에 살고싶어요ㅠㅠ ';
+                    var c23 = document.getElementById('cTime2');
+                    c23.innerHTML = '2018/11/28';
+                    var c31 = document.getElementById('cName3');
+                    c31.innerHTML = '<b>으라차차</b>';
+                    var c32 = document.getElementById('cText3');
+                    c32.innerHTML = '인테리어 정말 잘하신것 같아요 부럽습니다!!';
+                    var c33 = document.getElementById('cTime3');
+                    c33.innerHTML = '2018/11/29';
+                });
+                $('.postname3').click(function (event) {
+                    var c11 = document.getElementById('cName1');
+                    c11.innerHTML = '<b>구진이</b>';
+                    var c12 = document.getElementById('cText1');
+                    c12.innerHTML = '어머 회원님 집이 너무 이쁜거같아요.<br/>여기에다가 요즘 유명한 무드등 가습기 하나 추가하면 좋을거 같군요^^';
+                    var c13 = document.getElementById('cTime1');
+                    c13.innerHTML = '2018/11/30';
+                    var c21 = document.getElementById('cName2');
+                    c21.innerHTML = '<b>헬로우얍</b>';
+                    var c22 = document.getElementById('cText2');
+                    c22.innerHTML = '진짜 잘 꾸미신거같은데요..배워야겠어요ㅜ';
+                    var c33 = document.getElementById('cTime2');
+                    c33.innerHTML = '2018/12/01';
+                });
+                $('.postname4').click(function (event) {
+                    var c11 = document.getElementById('cName1');
+                    c11.innerHTML = '<b>싱글</b>';
+                    var c12 = document.getElementById('cText1');
+                    c12.innerHTML = '티비도 이쁘고 티비다이도..조으네요~';
+                    var c13 = document.getElementById('cTime1');
+                    c13.innerHTML = '2018/12/03';
+                    var c21 = document.getElementById('cName2');
+                    c21.innerHTML = '<b>한웅짱</b>';
+                    var c22 = document.getElementById('cText2');
+                    c22.innerHTML = '수납장 정보 궁금합니다~답댓 기다려봅니다ㅎ';
+                    var c23 = document.getElementById('cTime2');
+                    c23.innerHTML = '2018/12/04';
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="pageWrapper">
+            <div id="top">
+                <header class="title">
+                    <h1>게시판</h1>
+                </header>
+                <nav class="topMenu">
+                    <h2><a href="index.html">main</a></h2>
+                </nav>
+            </div>
+        <table class = "bbs" width = "990" height = "200" border="0">
+            <colgroup>
+                <col width = "50" />
+                <col width = "500" />
+                <col width = "100" />
+                <col width = "50" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번 호</th>
+                    <th>제 목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                    <td align = "center">4</td>
+                    <td class="postname4"><a id="pn4" href = "#">title</a></td>
+                    <td align = "center">타짜진</td>
+                    <td align = "center">2018/12/02</td>
+                    <td align = "center">2</td>
+                </tr>
+                    <tr>
+                    <td align = "center">3</td>
+                    <td class="postname3"><a id="pn3" href = "#">title</a></td>
+                    <td align = "center">졸커탱</td>
+                    <td align = "center">2018/11/30</td>
+                    <td align = "center">22</td>
+                </tr>
+                <tr>
+                    <td align = "center">2</td>
+                    <td class="postname2"><a id="pn2" href = "#">title</a></td>
+                    <td align = "center">한윤섭</td>
+                    <td align = "center">2018/11/28</td>
+                    <td align = "center">26</td>
+                </tr>
+                <tr>
+                    <td align = "center">1</td>
+                    <td class="postname1"><a id="pn1" href = "#">title</a></td>
+                    <td align = "center">김수진</td>
+                    <td align = "center">2018/11/25</td>
+                    <td align = "center">24</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td align = "center" colspan="5">1</td>
+                </tr>
+            </tfoot>
+        </table>
+            <div id="buttonbox">
+                <input id="write" type="button" value="글쓰기" onclick="move('none.jsp');" />
+            </div>
+            <footer id="bottom">
+                <h5>Myongji University Information &amp; Communications GOD JONG MYONG KYO SOO NIM SA RANG HAE YO </h5>
+            </footer>
+        </div>
+        <div id="darken-background">
+            <div id="lightbox">
+                <hr class="lightbox-splitter" />
+                <div id="boxtop">
+                    <table border="0" width="800">
+                        <tr>
+                            <td id="titleBox"><h1 id="boxTitle">제목</h1></td>
+                            <td id="quitBox" ><a href="#"><img src="image/closebox.png" width="36" height="36"/></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="boxmiddle">
+                    <img id="imgbox" width="400" />
+                    <p id="textbox">내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                </div>
+                <div id="boxbottom">
+                    <div id="inputCommentBox">
+                        <h3>댓글</h3>
+                        <form>
+                            <textarea name="comment" rows="2" cols="115"></textarea>
+                            <input id="inputComment" type="button" value=" 입력 " onclick = "location.href = '#'" />
+                        </form>
+                        <div id="commentBox">
+                            <table id="commentText">
+                                <tr>
+                                    <td id="cName1" width="100"></td>
+                                    <td id="cText1" width="600"></td>
+                                    <td id="cTime1" width="100"></td>
+                                </tr>
+                                <tr>
+                                    <td id="cName2" width="100"></td>
+                                    <td id="cText2" width="600"></td>
+                                    <td id="cTime2" width="100"></td>
+                                </tr>
+                                <tr>
+                                    <td id="cName3" width="100"></td>
+                                    <td id="cText3" width="600"></td>
+                                    <td id="cTime3" width="100"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
